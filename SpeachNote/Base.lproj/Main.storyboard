@@ -18,14 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ome-gR-HWs">
-                                <rect key="frame" x="16" y="110" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Здесь будет отображаться текст после распознания..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wZo-2u-iCP">
+                                <rect key="frame" x="25" y="40" width="325" height="365"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="1El-sZ-6Gz"/>
+                                    <constraint firstAttribute="height" constant="365" id="Uba-NN-Q2S"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owf-bC-1E7">
-                                <rect key="frame" x="162" y="291" width="51" height="30"/>
+                                <rect key="frame" x="112" y="413" width="150" height="30"/>
                                 <state key="normal" title="Запись"/>
                                 <connections>
                                     <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nvr-cX-Wzk"/>
@@ -34,18 +39,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="owf-bC-1E7" firstAttribute="top" secondItem="Ome-gR-HWs" secondAttribute="bottom" constant="151" id="3r6-ys-mmr"/>
-                            <constraint firstItem="owf-bC-1E7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="162" id="K0l-rc-MsZ"/>
-                            <constraint firstItem="Ome-gR-HWs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OPy-Rm-Qdg"/>
-                            <constraint firstItem="Ome-gR-HWs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="Zbc-gX-xSv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ome-gR-HWs" secondAttribute="trailing" constant="16" id="iCv-BU-Sxk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="owf-bC-1E7" secondAttribute="trailing" constant="162" id="vfM-jS-V24"/>
+                            <constraint firstItem="owf-bC-1E7" firstAttribute="top" secondItem="wZo-2u-iCP" secondAttribute="bottom" constant="8" id="09r-fI-SXp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wZo-2u-iCP" secondAttribute="trailing" constant="25" id="3ma-yD-Zt5"/>
+                            <constraint firstItem="owf-bC-1E7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="aBL-aF-NX5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="owf-bC-1E7" secondAttribute="trailing" constant="113" id="mXa-S9-4Po"/>
+                            <constraint firstItem="wZo-2u-iCP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="oX8-ht-BQy"/>
+                            <constraint firstItem="wZo-2u-iCP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="xZ2-2g-BSj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="recordButton" destination="owf-bC-1E7" id="5tT-kg-6FJ"/>
-                        <outlet property="textField" destination="Ome-gR-HWs" id="0WX-Hv-4xr"/>
+                        <outlet property="textView" destination="wZo-2u-iCP" id="KRT-tT-hos"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
