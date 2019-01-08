@@ -12,11 +12,6 @@ import MessageUI
 
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
  
-    
-    
-    
-    
-    
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     
@@ -152,7 +147,19 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     }
     
-    func mailComposeViewController(_ controller: MFMailComposeViewController, didFinishWith result: MessageComposeResult) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result.rawValue {
+        case MFMailComposeResult.cancelled.rawValue:
+            print("Cancelled")
+        case MFMailComposeResult.saved.rawValue:
+            print("Saved")
+        case MFMailComposeResult.sent.rawValue:
+            print("Sent")
+        case MFMailComposeResult.failed.rawValue:
+            print("Error: \(String(describing: error?.localizedDescription))")
+        default:
+            break
+        }
         controller.dismiss(animated: true, completion: nil)
     }
     
