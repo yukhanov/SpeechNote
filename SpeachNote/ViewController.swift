@@ -8,9 +8,14 @@
 
 import UIKit
 import Speech
+import MessageUI
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
+ 
+    
+    
+    
+    
     
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var textView: UITextView!
@@ -19,12 +24,18 @@ class ViewController: UIViewController {
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
     let audioEngine = AVAudioEngine()
+    var resultStr = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.textColor = UIColor.gray
         recordButton.isEnabled = false
         speechRecognizer?.delegate = self
+        
+        if !MFMailComposeViewController.canSendMail() {
+            print("Почтовый сервис недоступен")
+            return
+        }
         
         SFSpeechRecognizer.requestAuthorization { status in
             var buttonState = false
@@ -73,9 +84,12 @@ class ViewController: UIViewController {
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
             var isFinal = false
             if result != nil {
+                self.resultStr = (result?.bestTranscription.formattedString)!
                 self.textView.textColor = .black
-                self.textView.text = result?.bestTranscription.formattedString
+                self.textView.text = self.resultStr
                 isFinal = ((result?.isFinal)!)
+             
+
             }
             if error != nil || isFinal {
                 self.audioEngine.stop()
@@ -113,11 +127,39 @@ class ViewController: UIViewController {
             recordButton.setTitle("Начать запись", for: .normal)
         } else {
             startRecording()
-            recordButton.setTitle("Остановить запись", for: .normal)
+            recordButton.setTitle("Остановить", for: .normal)
         }
+    }
+   
+    
+  
+    @IBAction func clearButtonTapped(_ sender: UIButton) {
+        textView.text = "Здесь будет отображаться текст после распознания..."
+        textView.textColor = UIColor.gray
+    }
+    
+    
+    
+    @IBAction func sendButtonTapped(_ sender: UIButton) {
+        
+        let composeVC = MFMailComposeViewController()
+        composeVC.mailComposeDelegate = self
+        
+        composeVC.setToRecipients(["s.yukhanov@gmail.com"])
+        composeVC.setSubject("Speech Note")
+        composeVC.setMessageBody(resultStr, isHTML: false)
+        self.present(composeVC, animated: true, completion: nil)
+    
+    }
+    
+    func mailComposeViewController(_ controller: MFMailComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
 }
+
+
+
 
 extension ViewController: SFSpeechRecognizerDelegate {
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {

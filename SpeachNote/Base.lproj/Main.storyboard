@@ -18,33 +18,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Здесь будет отображаться текст после распознания..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wZo-2u-iCP">
-                                <rect key="frame" x="25" y="40" width="325" height="365"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="325" id="1El-sZ-6Gz"/>
-                                    <constraint firstAttribute="height" constant="365" id="Uba-NN-Q2S"/>
-                                </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owf-bC-1E7">
-                                <rect key="frame" x="112" y="413" width="150" height="30"/>
+                                <rect key="frame" x="162" y="413" width="51" height="30"/>
                                 <state key="normal" title="Запись"/>
                                 <connections>
                                     <action selector="recordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nvr-cX-Wzk"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Здесь будет отображаться текст после распознания..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wZo-2u-iCP">
+                                <rect key="frame" x="25" y="40" width="325" height="365"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="365" id="Ncw-iV-HYe"/>
+                                    <constraint firstAttribute="width" constant="325" id="PA5-G0-eHX"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enj-bv-3po">
+                                <rect key="frame" x="25" y="413" width="58" height="30"/>
+                                <state key="normal" title="Стереть"/>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6RO-tM-TCn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwj-mq-cTe">
+                                <rect key="frame" x="282" y="413" width="77" height="30"/>
+                                <state key="normal" title="Отправить"/>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ZY-I5-qYw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="owf-bC-1E7" firstAttribute="top" secondItem="wZo-2u-iCP" secondAttribute="bottom" constant="8" id="09r-fI-SXp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wZo-2u-iCP" secondAttribute="trailing" constant="25" id="3ma-yD-Zt5"/>
-                            <constraint firstItem="owf-bC-1E7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="aBL-aF-NX5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="owf-bC-1E7" secondAttribute="trailing" constant="113" id="mXa-S9-4Po"/>
-                            <constraint firstItem="wZo-2u-iCP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="oX8-ht-BQy"/>
-                            <constraint firstItem="wZo-2u-iCP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="xZ2-2g-BSj"/>
+                            <constraint firstItem="owf-bC-1E7" firstAttribute="top" secondItem="wZo-2u-iCP" secondAttribute="bottom" constant="8" id="8Mr-vK-LmW"/>
+                            <constraint firstItem="Nwj-mq-cTe" firstAttribute="top" secondItem="wZo-2u-iCP" secondAttribute="bottom" constant="8" id="DJ8-jM-Xri"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nwj-mq-cTe" secondAttribute="bottom" constant="224" id="Pdb-aT-teX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="owf-bC-1E7" secondAttribute="trailing" constant="162" id="RW8-nb-jVc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nwj-mq-cTe" secondAttribute="trailing" constant="16" id="SMr-2D-qk9"/>
+                            <constraint firstItem="wZo-2u-iCP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Skk-2i-huL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="owf-bC-1E7" secondAttribute="bottom" constant="224" id="d5u-Ks-fRP"/>
+                            <constraint firstItem="enj-bv-3po" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="fWr-cH-62o"/>
+                            <constraint firstItem="wZo-2u-iCP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="oGA-Af-6TB"/>
+                            <constraint firstItem="owf-bC-1E7" firstAttribute="leading" secondItem="enj-bv-3po" secondAttribute="trailing" constant="79" id="pH8-rI-EVb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="enj-bv-3po" secondAttribute="bottom" constant="224" id="r9f-c9-QzR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wZo-2u-iCP" secondAttribute="trailing" constant="25" id="yzP-Y7-YAJ"/>
+                            <constraint firstItem="enj-bv-3po" firstAttribute="top" secondItem="wZo-2u-iCP" secondAttribute="bottom" constant="8" id="z8A-Du-lKv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
